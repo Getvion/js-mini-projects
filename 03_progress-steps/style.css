@@ -1,0 +1,86 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   background-color: #f6f7fb;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   overflow: hidden;
+}
+
+.container {
+   text-align: center;
+}
+
+.progress__container {
+   display: flex;
+   justify-content: space-between;
+   width: 350px;
+   margin-bottom: 30px;
+   position: relative;
+}
+.progress__container::before {
+   content: '';
+   background-color: #e0e0e0;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   height: 4px;
+   width: 100%;
+   transform: translateY(-50%);
+   z-index: -1;
+}
+.progress {
+   background-color: #32c9ce;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   height: 4px;
+   width: 0%;
+   transform: translateY(-50%);
+   z-index: -1;
+   transition: .3s ease;
+}
+
+.circle {
+   background-color: #fff;
+   color: #999;
+   height: 35px;
+   width: 35px;
+   border-radius: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 3px solid #e0e0e0;
+   transition: .3s ease;
+   font-size: 18px;
+}
+
+.circle.active {
+   border-color:#349adb;
+}
+
+.btn {
+   border: none;
+   border-radius: 10px;
+   background-color: #349adb;
+   color: #fff;
+   cursor: pointer;
+   padding: 10px 25px;
+   margin: 7px;
+   font-size: 16px;
+}
+.btn:active {
+   transform: scale(0.9);
+}
+
+.btn:disabled {
+   background-color: #e0e0e0;
+   transform: scale(1);
+}

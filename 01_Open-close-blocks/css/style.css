@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+}
+.container {
+  max-width: 50%;
+  margin: 100px auto;
+}
+
+.block__btn {
+  margin: 20px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 18px;
+  background-color: inherit;
+  border: 1px solid #7878ca;
+  color: #7878ac;
+}
+.block__btn:hover {
+  transition: 0.3s;
+  border: 1px solid #7878ca;
+  background-color: #7878ca;
+  color: #fff;
+}
+.block__btn:focus {
+  outline: none;
+}
+
+.block__text {
+  border: 2px solid #a7a6a6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #7878ca;
+}
+
+.block__text.content__hidden {
+  display: none;
+}
