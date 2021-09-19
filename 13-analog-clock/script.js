@@ -12,26 +12,28 @@ const months = ["Января", "Февраля", "Марта", "Апреля", 
 toggle.addEventListener('click', (event) => {
   const html = document.querySelector('html');
 
-
-
   if (html.classList.contains('dark')) {
     html.classList.remove('dark');
     event.target.innerHTML = 'Переключить на темную тему';
-    // localStorage.setItem('theme', 'light');
+    localStorage.setItem('theme', 'light');
   } else {
-    {
-      html.classList.add('dark');
-      event.target.innerHTML = 'Переключить на светлую тему';
-      // localStorage.setItem('theme', 'dark');
-    }
+    html.classList.add('dark');
+    event.target.innerHTML = 'Переключить на светлую тему';
+    localStorage.setItem('theme', 'dark');
   }
-
-  // if (localStorage.getItem.theme === 'dark') {
-  //   html.classList.add('dark');
-  // } else {
-  //   html.classList.remove('dark');
-  // }
 });
+
+function checkLocalStorage() {
+  const html = document.querySelector('html');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark');
+    console.log(html.classList);
+  } else {
+    html.classList.remove('dark');
+  }
+}
+checkLocalStorage();
 
 function setTime() {
   const time = new Date();
