@@ -7,6 +7,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -26,9 +27,24 @@ body {
   background-color: #1d1d1d;
   margin: 1px;
   box-shadow: 0 0 1px #000;
-  transition: 1s ease;
+  transition: 2s ease;
 }
 
 .square:hover {
   transition-duration: 0s;
+}
+
+.select {
+  margin-bottom: 20px;
+}
+
+.select__input,
+.select__button {
+  border: none;
+  color: #fff;
+  background-color: #555;
+}
+
+.select__button:active {
+  transform: scale(0.98);
 }

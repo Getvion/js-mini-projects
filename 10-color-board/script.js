@@ -1,24 +1,40 @@
 const board = document.querySelector('#board');
-const squaresNumber = 600;
-const colors = ['red', 'orange', 'yellow', 'gold', 'blue', 'green', 'purple', 'pink']
+const colors = ['red', 'orange', 'yellow', 'gold', 'blue', 'green', 'purple', 'pink'];
+const input = document.querySelector('.select__input');
+const addBtn = document.querySelector('.select__button');
 
-for (let i = 0; i < squaresNumber; i++) {
-  const square = document.createElement('div');
-  square.classList.add('square');
+let squaresNumber = 0;
 
-  square.addEventListener('mouseover', () => {
-    setColor(square);
-  });
+addBtn.addEventListener('click', selectSquareCount);
 
-  square.addEventListener('mouseleave', () => {
-    removeColor(square);
-  })
+input.addEventListener('keyup', function (event) {
+  if (event.keyCode == 13) {
+    selectSquareCount();
+  }
+});
+function selectSquareCount() {
+  squaresNumber = input.value;
+  console.log(squaresNumber);
 
-  board.append(square);
+  input.value = '';
+
+  for (let i = 0; i < squaresNumber; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
+
+    square.addEventListener('mouseover', () => {
+      setColor(square);
+    });
+
+    square.addEventListener('mouseleave', () => {
+      removeColor(square);
+    });
+    board.append(square);
+  }
 }
 
 function setColor(element) {
-  const color = getRandomColor()
+  const color = getRandomColor();
   element.style.backgroundColor = color;
   element.style.boxShadow = ` 0 0 1px ${color}, 0 0 10px ${color}`;
 }
@@ -28,6 +44,5 @@ function removeColor(element) {
 }
 
 function getRandomColor() {
-  const index = Math.floor(Math.random() * colors.length);
-  return colors[index];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
